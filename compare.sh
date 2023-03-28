@@ -16,8 +16,8 @@ stGuidedGtf="${homedir}/02.assembly/${baseForName}/${baseForName}.stringtie.guid
 
 flairFa="${homedir}/02.assembly/${baseForName}/${baseForName}.flair.collapse.isoforms.fa"
 stFreeFa="${homedir}/02.assembly/${baseForName}/${baseForName}.stringtie.free.assembly.fa"
-stGuidedGFa="${homedir}/02.assembly/${baseForName}/${baseForName}.stringtie.guided.assembly.fa" 
-rbFa="${homedir}/02.assembly/${baseForName}/${baseForName}.rb.transcripts.fa" #need to figure this out
+stGuidedFa="${homedir}/02.assembly/${baseForName}/${baseForName}.stringtie.guided.assembly.fa" 
+rbFa="${homedir}/02.assembly/${baseForName}/${baseForName}.rb.transcripts.fa"
 
 exec > >(tee "${baseForName}.cmp.out") 2>&1 # save all subsequent output
 set -x #echo on
@@ -48,6 +48,7 @@ cd ${baseForName}
 mkdir frGtf
 mkdir frFa
 
+#use gtf files 
 python "${sqantiPath}/sqanti3_qc.py" $flairGtf $refAnnotation $refGenome \
 -d "${homedir}/03.sqanti/${baseForName}/frGtf" --skipORF --report both
 
@@ -57,6 +58,7 @@ python "${sqantiPath}/sqanti3_qc.py" $stFreeGtf $refAnnotation $refGenome \
 python "${sqantiPath}/sqanti3_qc.py" $stGuidedGtf $refAnnotation $refGenome \
 -d "${homedir}/03.sqanti/${baseForName}/frGtf" --skipORF --report both
 
+#use fasta files
 python "${sqantiPath}/sqanti3_qc.py" $flairFa $refAnnotation $refGenome \
 -d "${homedir}/03.sqanti/${baseForName}/frFa" --skipORF --report both --fasta --force_id_ignore
 
