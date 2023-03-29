@@ -73,7 +73,10 @@ The output files are stored in 03.sqanti and 04.gffcompare under dir baseForName
 + gffcompare only uses available .gtf files for analysis (ie. only stringtie and flair assemblies)
 
 
-
+#### Temp link for results generated 
++ Dataset SRR6058583 Oxford Nanopore direct RNA of SIRV mix E2: https://www.ncbi.nlm.nih.gov/sra/?term=SRR6058583  
++ Reference genome and annotations: https://www.lexogen.com/wp-content/uploads/2021/06/SIRV_Set1_Norm_Sequences_20210507.zip
++ results: https://www.dropbox.com/scl/fo/tu1au2ogd7o9fd289xd08/h?dl=0&rlkey=heir5i03ne0ayfuqd00ykn52g
 
 
 
