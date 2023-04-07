@@ -72,6 +72,12 @@ The output files are stored in 03.sqanti and 04.gffcompare under dir baseForName
 + sqanti also uses .gtf files for analysis and outputs results in frGtf dir
 + gffcompare only uses available .gtf files for analysis (ie. only stringtie and flair assemblies)
 
+### Summarizing sqanti results
+copy sqanti_summarize.sh to the directory with the sqanti output (preferably frFa) then run script
+```bash
+./sqanti_summarize.sh
+```
+Outputs a tsv with number of transcripts in different sqanti categories for each assembly
 
 ###### Temp link for results generated 
 + Dataset SRR6058583 Oxford Nanopore direct RNA of SIRV mix E2: https://www.ncbi.nlm.nih.gov/sra/?term=SRR6058583  
