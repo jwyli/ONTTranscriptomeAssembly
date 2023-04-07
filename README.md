@@ -77,6 +77,7 @@ run sqanti_summarize.sh after going to the directory with the sqanti output (pre
 ```bash
 ${homedir}/sqanti_summarize.sh
 ```
+
 Outputs a tsv with number of transcripts in different sqanti categories for each assembly
 
 ###### Temp link for results generated 
