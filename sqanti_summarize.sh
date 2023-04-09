@@ -19,7 +19,7 @@ grep 'incomplete-splice_match' *flair.*classification.txt | \
 cut -f8 | sort | uniq | wc -l | awk '{print "Unique ISM:\t" $1}' >> sqanti_summary.txt #for unique ism
 
 grep -e 'full-splice_match' -e 'incomplete-splice_match' *flair.*classification.txt | \
-cut -f8 | sort | uniq | wc -l | awk '{print "Unique RM/ISM:\t" $1}' >> sqanti_summary.txt #for unique rm/ism
+cut -f8 | sort | uniq | wc -l | awk '{print "Unique FSM/ISM:\t" $1}' >> sqanti_summary.txt #for unique FSM/ISM
 
 grep 'novel_in_catalog' *flair.*classification.txt | wc -l | awk '{print "NIC:\t" $1}' >> sqanti_summary.txt # for NIC
 grep 'novel_not_in_catalog' *flair.*classification.txt | wc -l | awk '{print "NNC:\t" $1}' >> sqanti_summary.txt # for NNC
@@ -47,7 +47,7 @@ grep 'incomplete-splice_match' *stringtie.guided.*classification.txt | \
 cut -f8 | sort | uniq | wc -l | awk '{print "Unique ISM:\t" $1}' >> sqanti_summary.txt #for unique ism
 
 grep -e 'full-splice_match' -e 'incomplete-splice_match' *stringtie.guided.*classification.txt | \
-cut -f8 | sort | uniq | wc -l | awk '{print "Unique RM/ISM:\t" $1}' >> sqanti_summary.txt #for unique rm\ism
+cut -f8 | sort | uniq | wc -l | awk '{print "Unique FSM/ISM:\t" $1}' >> sqanti_summary.txt #for unique rm\ism
 
 grep 'novel_in_catalog' *stringtie.guided.*classification.txt | wc -l | awk '{print "NIC:\t" $1}' >> sqanti_summary.txt # for NIC
 grep 'novel_not_in_catalog' *stringtie.guided.*classification.txt | wc -l | awk '{print "NNC:\t" $1}' >> sqanti_summary.txt # for NNC
@@ -74,7 +74,7 @@ grep 'incomplete-splice_match' *stringtie.free.*classification.txt | \
 cut -f8 | sort | uniq | wc -l | awk '{print "Unique ISM:\t" $1}' >> sqanti_summary.txt #for unique ism
 
 grep -e 'full-splice_match' -e 'incomplete-splice_match' *stringtie.free.*classification.txt | \
-cut -f8 | sort | uniq | wc -l | awk '{print "Unique RM/ISM:\t" $1}' >> sqanti_summary.txt #for unique rm/ism
+cut -f8 | sort | uniq | wc -l | awk '{print "Unique FSM/ISM:\t" $1}' >> sqanti_summary.txt #for unique FSM/ISM
 
 grep 'novel_in_catalog' *stringtie.free.*classification.txt | wc -l | awk '{print "NIC:\t" $1}' >> sqanti_summary.txt # for NIC
 grep 'novel_not_in_catalog' *stringtie.free.*classification.txt | wc -l | awk '{print "NNC:\t" $1}' >> sqanti_summary.txt # for NNC
@@ -102,7 +102,7 @@ grep 'incomplete-splice_match' *rb.*classification.txt | \
 cut -f8 | sort | uniq | wc -l | awk '{print "Unique ISM:\t" $1}' >> sqanti_summary.txt #for unique ism
 
 grep -e 'full-splice_match' -e 'incomplete-splice_match' *rb.*classification.txt | \
-cut -f8 | sort | uniq | wc -l | awk '{print "Unique RM/ISM:\t" $1}' >> sqanti_summary.txt #for unique rm/ism
+cut -f8 | sort | uniq | wc -l | awk '{print "Unique FSM/ISM:\t" $1}' >> sqanti_summary.txt #for unique FSM/ISM
 
 grep 'novel_in_catalog' *rb.*classification.txt | wc -l | awk '{print "NIC:\t" $1}' >> sqanti_summary.txt # for NIC
 grep 'novel_not_in_catalog' *rb.*classification.txt | wc -l | awk '{print "NNC:\t" $1}' >> sqanti_summary.txt # for NNC
@@ -128,7 +128,7 @@ grep 'incomplete-splice_match' *rattle.*classification.txt | \
 cut -f8 | sort | uniq | wc -l | awk '{print "Unique ISM:\t" $1}' >> sqanti_summary.txt #for unique ism
 
 grep -e 'full-splice_match' -e 'incomplete-splice_match' *rattle.*classification.txt | \
-cut -f8 | sort | uniq | wc -l | awk '{print "Unique RM/ISM:\t" $1}' >> sqanti_summary.txt #for unique rm/ism
+cut -f8 | sort | uniq | wc -l | awk '{print "Unique FSM/ISM:\t" $1}' >> sqanti_summary.txt #for unique FSM/ISM
 
 grep 'novel_in_catalog' *rattle.*classification.txt | wc -l | awk '{print "NIC:\t" $1}' >> sqanti_summary.txt # for NIC
 grep 'novel_not_in_catalog' *rattle.*classification.txt | wc -l | awk '{print "NNC:\t" $1}' >> sqanti_summary.txt # for NNC
