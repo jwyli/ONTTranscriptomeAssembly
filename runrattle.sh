@@ -18,6 +18,7 @@ cd ${baseForName}
 /hdd1/home/p21_wyli/6010/source/RATTLE/rattle polish -i consensi.fq -t 48 --rna
 
 endtime=`date +%s`
+runtime=$((endtime-starttime))
 echo "finished RATTLE analysis for ${baseForName} in ${runtime} seconds."
 
 mv clusters.out "${baseForName}.rattle.clusters.out"
