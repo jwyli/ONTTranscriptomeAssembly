@@ -47,7 +47,6 @@ starttime=`date +%s`
 #Input: spliced RNA-seq read alignments (SAM, BAM or CRAM file sorted by coordinate). 
 #The -L option must be used when the input alignment file contains (sorted) spliced alignments of long read RNA-seq or cDNA reads. 
 #Such alignments can be produced by `minimap2` with the `-ax splice` option, which also generates the necessary `ts` tag to indicate the transcription strand. 
-#As mentioned above such `minimap2` alignment files must be first position-sorted by before they can be processed by StringTie. 
 #mm2 github manual suggest: minimap2 -ax splice -uf -k14 ref.fa direct-rna.fq > aln.sam
 #? --splice-flank=no if sirv? remember not to add for other samples! 
 # https://github.com/lh3/minimap2/blob/master/cookbook.md#map-direct-rna
@@ -60,7 +59,6 @@ minimap2 -t 48 -ax splice -uf -k14 $refGenome $readsFq \
 #sgnex says:
 # use “-ax splice --junc-bed” for genomic alignments using the junction bed file to correct splicing junctions, 
 # use “-ax map-ont” for transcriptomic alignments. 
-# For direct RNA-Seq runs the additional parameters “-k14” and “-uf” are used as recommended
 
 # https://github.com/lh3/minimap2#map-long-splice says:
 # For Iso-seq, Direct RNA-seq and tranditional full-length cDNAs, 
@@ -76,16 +74,13 @@ samtools index "${baseForName}.stringtie.aln.bam"
 
 #usage: stringtie [-o <output.gtf>] [other_options] <read_alignments.bam>
 #without guide annotation
-# -c: Sets the minimum read coverage allowed for the predicted transcripts. 
-# A transcript with a lower coverage than this value is not shown in the output. Default: 1 
+# -c: Sets the minimum read coverage allowed for the predicted transcripts. A transcript with a lower coverage than this value is not shown in the output. Default: 1 
 # -s: minimum read coverage for single-exon transcripts. default = 4.75 
-#not sure why rnabloom supp set as 3??
-stringtie -p 48 -L -c 3 -s 3 \
--o "${baseForName}.stringtie.free.assembly.gtf" "${baseForName}.stringtie.aln.bam"
+# not sure why rnabloom supp set both as 3??
+stringtie -p 48 -L -o "${baseForName}.stringtie.free.assembly.gtf" "${baseForName}.stringtie.aln.bam"
 
 #with guide annotation
-stringtie -p 48 -L -c 3 -s 3 -G $refAnnotation \
--o "${baseForName}.stringtie.guided.assembly.gtf" "${baseForName}.stringtie.aln.bam"
+stringtie -p 48 -L -G $refAnnotation -o "${baseForName}.stringtie.guided.assembly.gtf" "${baseForName}.stringtie.aln.bam"
 
 #use gffread to generate a FASTA file with the DNA sequences for all transcripts in a GFF file
 #usage: gffread -w transcripts.fa -g /path/to/genome.fa transcripts.gtf
@@ -109,5 +104,3 @@ rnabloom -long $readsFq -stranded -t 48 -outdir . -n "${baseForName}.rb"
 endtime=`date +%s`
 runtime=$((endtime-starttime))
 echo "finished rnabloom2 analysis for ${baseForName} in ${runtime} seconds"
-
-
