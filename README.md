@@ -83,7 +83,6 @@ cd ${homedir}/
 The output files are stored in 03.sqanti and 04.gffcompare under dir baseForName  
 + sqanti uses .fa files for analysis and outputs results in frFa dir  
 (sqanti also creates a .renamed.fasta file in 02.assembly for its own use, where the transcript description line is changed)
-+ sqanti also uses .gtf files for analysis and outputs results in frGtf dir
 + gffcompare only uses available .gtf files for analysis (ie. only stringtie and flair assemblies)
 
 ### Summarizing sqanti results

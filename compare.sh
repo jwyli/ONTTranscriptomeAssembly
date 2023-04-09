@@ -18,6 +18,7 @@ flairFa="${homedir}/02.assembly/${baseForName}/${baseForName}.flair.collapse.iso
 stFreeFa="${homedir}/02.assembly/${baseForName}/${baseForName}.stringtie.free.assembly.fa"
 stGuidedFa="${homedir}/02.assembly/${baseForName}/${baseForName}.stringtie.guided.assembly.fa" 
 rbFa="${homedir}/02.assembly/${baseForName}/${baseForName}.rb.transcripts.fa"
+rattleFa="${homedir}/02.assembly/${baseForName}/${baseForName}.rattle.transcriptome.fq"
 
 exec > >(tee "${baseForName}.cmp.out") 2>&1 # save all subsequent output
 set -x #echo on
@@ -45,18 +46,7 @@ mv *gffcmp* "${homedir}/04.gffcompare/${baseForName}" #move the gffcmp files fro
 cd "${homedir}/03.sqanti"
 mkdir ${baseForName}
 cd ${baseForName}
-mkdir frGtf
 mkdir frFa
-
-#use gtf files 
-python "${sqantiPath}/sqanti3_qc.py" $flairGtf $refAnnotation $refGenome \
--d "${homedir}/03.sqanti/${baseForName}/frGtf" --skipORF --report both
-
-python "${sqantiPath}/sqanti3_qc.py" $stFreeGtf $refAnnotation $refGenome \
--d "${homedir}/03.sqanti/${baseForName}/frGtf" --skipORF --report both
-
-python "${sqantiPath}/sqanti3_qc.py" $stGuidedGtf $refAnnotation $refGenome \
--d "${homedir}/03.sqanti/${baseForName}/frGtf" --skipORF --report both
 
 #use fasta files
 python "${sqantiPath}/sqanti3_qc.py" $flairFa $refAnnotation $refGenome \
@@ -71,3 +61,5 @@ python "${sqantiPath}/sqanti3_qc.py" $stGuidedFa $refAnnotation $refGenome \
 python "${sqantiPath}/sqanti3_qc.py" $rbFa $refAnnotation $refGenome \
 -d "${homedir}/03.sqanti/${baseForName}/frFa" --skipORF --report both --fasta --force_id_ignore
 
+python "${sqantiPath}/sqanti3_qc.py" $rattleFa $refAnnotation $refGenome \
+-d "${homedir}/03.sqanti/${baseForName}/frFa" --skipORF --report both --fasta --force_id_ignore
