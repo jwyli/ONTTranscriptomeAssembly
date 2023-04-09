@@ -45,6 +45,20 @@ Output from each sample will be stored in a separate dir baseForName
 + baseForName.stringtie.guided.assembly.gtf
 + baseForName.rb.transcripts.fa (no gtf for de novo assembly)
 
+### Run RATTLE separately
+RATTLE takes very long and preferable to run it in a separate wrapper script.
+
+### Activate environment
+```bash
+conda activate rattle
+export LD_LIBRARY_PATH=~/6010/source/RATTLE/spoa/build/lib
+```
+### Run script
+```bash
+cd ${homedir}
+./runrattle.sh baseForName path/to/reads.fasta
+```
+
 ## 2. Assessment of assembly quality
 Uses sqanti and gffcompare to compare the assembled transcriptome (assembly.gtf | transcripts.fa) with reference transcriptome (refAnnotation.gtf)
 
