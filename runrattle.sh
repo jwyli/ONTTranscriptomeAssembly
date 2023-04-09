@@ -15,7 +15,7 @@ cd ${baseForName}
 
 /hdd1/home/p21_wyli/6010/source/RATTLE/rattle cluster -i ${readsFq} -t 48 --iso --rna 
 /hdd1/home/p21_wyli/6010/source/RATTLE/rattle correct -i ${readsFq} -c "${homedir}/02.assembly/${baseForName}/clusters.out" -t 48 
-/hdd1/home/p21_wyli/6010/source/RATTLE/rattle polish -i consensi.fq -t 48
+/hdd1/home/p21_wyli/6010/source/RATTLE/rattle polish -i consensi.fq -t 48 --rna
 
 endtime=`date +%s`
 echo "finished RATTLE analysis for ${baseForName} in ${runtime} seconds."
