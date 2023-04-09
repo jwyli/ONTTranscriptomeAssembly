@@ -4,7 +4,7 @@ homedir="/hdd1/home/p21_wyli/6010/"
 baseForName=$1 
 readsFq=$2 #full path
 
-exec > >(tee "${baseForName}.assembly.out") 2>&1 # save all subsequent output
+exec > >(tee "${baseForName}.rattle.out") 2>&1 # save all subsequent output
 set -x #echo on
 
 starttime=`date +%s`
