@@ -61,7 +61,7 @@ grep 'genic' *rb.*classification.txt | wc -l | awk '{print "genic:\t" $1}' >> sq
 grep 'intergenic' *rb.*classification.txt | wc -l | awk '{print "intergenic:\t" $1}' >> sqanti_summary.txt # for intergenic
 grep 'fusion' *rb.*classification.txt | wc -l | awk '{print "fusion:\t" $1}' >> sqanti_summary.txt # for fusion
 
-echo 'analysis for stringtie.free' >> sqanti_summary.txt
+echo 'analysis for rattle' >> sqanti_summary.txt
 wc -l *rattle.*classification.txt | awk '{print "transcripts assembled: " $1 -1}' >> sqanti_summary.txt # no. of transcripts (-1 for the header line)
 grep 'full-splice_match' *rattle.*classification.txt | wc -l | awk '{print "FSM:\t" $1}' >> sqanti_summary.txt #for fsm
 grep 'full-splice_match' *rattle.*classification.txt | cut -f8 | sort | uniq | wc -l | awk '{print "Unique FSM:\t" $1}' >> sqanti_summary.txt #for unique fsm
