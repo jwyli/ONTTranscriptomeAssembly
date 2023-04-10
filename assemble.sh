@@ -42,7 +42,7 @@ echo "finished flair analysis for ${baseForName} in ${runtime} seconds"
 #run stringtie
 #check runtimes
 echo "starting stringtie analysis for ${baseForName}"
-starttime=`date +%s`
+starttime_map=`date +%s`
 
 #Input: spliced RNA-seq read alignments (SAM, BAM or CRAM file sorted by coordinate). 
 #The -L option must be used when the input alignment file contains (sorted) spliced alignments of long read RNA-seq or cDNA reads. 
@@ -68,6 +68,12 @@ minimap2 -t 48 -ax splice -uf -k14 $refGenome $readsFq \
 
 samtools index "${baseForName}.stringtie.aln.bam"
 
+endtime_map=`date +%s`
+runtime_map=$((endtime_map-starttime_map))
+
+#without guided annotation
+starttime=`date +%s`
+
 #A reference annotation file in GTF or GFF3 format can be provided to StringTie using the -G option 
 #used as 'guides' for the assembly process and help improve the transcript structure recovery for those transcripts.
 #rec if model organism eg. human
@@ -76,21 +82,27 @@ samtools index "${baseForName}.stringtie.aln.bam"
 #without guide annotation
 # -c: Sets the minimum read coverage allowed for the predicted transcripts. A transcript with a lower coverage than this value is not shown in the output. Default: 1 
 # -s: minimum read coverage for single-exon transcripts. default = 4.75 
-# not sure why rnabloom supp set both as 3??
+# rnabloom supp set both as 3??
 stringtie -p 48 -L -o "${baseForName}.stringtie.free.assembly.gtf" "${baseForName}.stringtie.aln.bam"
-
-#with guide annotation
-stringtie -p 48 -L -G $refAnnotation -o "${baseForName}.stringtie.guided.assembly.gtf" "${baseForName}.stringtie.aln.bam"
 
 #use gffread to generate a FASTA file with the DNA sequences for all transcripts in a GFF file
 #usage: gffread -w transcripts.fa -g /path/to/genome.fa transcripts.gtf
 gffread -w "${baseForName}.stringtie.free.assembly.fa" -g $refGenome "${baseForName}.stringtie.free.assembly.gtf"
+
+endtime=`date +%s`
+runtime=$((endtime-starttime+runtime_map))
+echo "finished stringtie.free analysis for ${baseForName} in ${runtime} seconds."
+
+#with guide annotation
+starttime=`date +%s`
+
+stringtie -p 48 -L -G $refAnnotation -o "${baseForName}.stringtie.guided.assembly.gtf" "${baseForName}.stringtie.aln.bam"
 gffread -w "${baseForName}.stringtie.guided.assembly.fa" -g $refGenome "${baseForName}.stringtie.guided.assembly.gtf"
 
 # check runtimes
 endtime=`date +%s`
-runtime=$((endtime-starttime))
-echo "finished stringtie analysis for ${baseForName} in ${runtime} seconds for both with and without guide gtf."
+runtime=$((endtime-starttime+runtime_map))
+echo "finished stringtie.guided analysis for ${baseForName} in ${runtime} seconds."
 
 # run rnabloom2
 #check runtimes
