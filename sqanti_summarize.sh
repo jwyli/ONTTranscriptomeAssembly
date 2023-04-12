@@ -24,7 +24,7 @@ cut -f8 | sort | uniq | wc -l | awk '{print "Unique FSM/ISM:\t" $1}' >> sqanti_s
 grep 'novel_in_catalog' *flair.*classification.txt | wc -l | awk '{print "NIC:\t" $1}' >> sqanti_summary.txt # for NIC
 grep 'novel_not_in_catalog' *flair.*classification.txt | wc -l | awk '{print "NNC:\t" $1}' >> sqanti_summary.txt # for NNC
 grep 'antisense' *flair.*classification.txt | wc -l | awk '{print "antisense:\t" $1}'>> sqanti_summary.txt # for antisense
-grep 'genic' *flair.*classification.txt | wc -l | awk '{print "genic:\t" $1}' >> sqanti_summary.txt # for genic
+grep -w 'genic' *flair.*classification.txt | wc -l | awk '{print "genic:\t" $1}' >> sqanti_summary.txt # for genic
 grep 'intergenic' *flair.*classification.txt | wc -l | awk '{print "intergenic:\t" $1}' >> sqanti_summary.txt # for intergenic
 grep 'fusion' *flair.*classification.txt | wc -l | awk '{print "fusion:\t" $1}' >> sqanti_summary.txt # for fusion
 
@@ -52,7 +52,7 @@ cut -f8 | sort | uniq | wc -l | awk '{print "Unique FSM/ISM:\t" $1}' >> sqanti_s
 grep 'novel_in_catalog' *stringtie.guided.*classification.txt | wc -l | awk '{print "NIC:\t" $1}' >> sqanti_summary.txt # for NIC
 grep 'novel_not_in_catalog' *stringtie.guided.*classification.txt | wc -l | awk '{print "NNC:\t" $1}' >> sqanti_summary.txt # for NNC
 grep 'antisense' *stringtie.guided.*classification.txt | wc -l | awk '{print "antisense:\t" $1}'>> sqanti_summary.txt # for antisense
-grep 'genic' *stringtie.guided.*classification.txt | wc -l | awk '{print "genic:\t" $1}' >> sqanti_summary.txt # for genic
+grep -w 'genic' *stringtie.guided.*classification.txt | wc -l | awk '{print "genic:\t" $1}' >> sqanti_summary.txt # for genic
 grep 'intergenic' *stringtie.guided.*classification.txt | wc -l | awk '{print "intergenic:\t" $1}' >> sqanti_summary.txt # for intergenic
 grep 'fusion' *stringtie.guided.*classification.txt | wc -l | awk '{print "fusion:\t" $1}' >> sqanti_summary.txt # for fusion
 
@@ -79,7 +79,7 @@ cut -f8 | sort | uniq | wc -l | awk '{print "Unique FSM/ISM:\t" $1}' >> sqanti_s
 grep 'novel_in_catalog' *stringtie.free.*classification.txt | wc -l | awk '{print "NIC:\t" $1}' >> sqanti_summary.txt # for NIC
 grep 'novel_not_in_catalog' *stringtie.free.*classification.txt | wc -l | awk '{print "NNC:\t" $1}' >> sqanti_summary.txt # for NNC
 grep 'antisense' *stringtie.free.*classification.txt | wc -l | awk '{print "antisense:\t" $1}'>> sqanti_summary.txt # for antisense
-grep 'genic' *stringtie.free.*classification.txt | wc -l | awk '{print "genic:\t" $1}' >> sqanti_summary.txt # for genic
+grep -w 'genic' *stringtie.free.*classification.txt | wc -l | awk '{print "genic:\t" $1}' >> sqanti_summary.txt # for genic
 grep 'intergenic' *stringtie.free.*classification.txt | wc -l | awk '{print "intergenic:\t" $1}' >> sqanti_summary.txt # for intergenic
 grep 'fusion' *stringtie.free.*classification.txt | wc -l | awk '{print "fusion:\t" $1}' >> sqanti_summary.txt # for fusion
 
@@ -107,7 +107,7 @@ cut -f8 | sort | uniq | wc -l | awk '{print "Unique FSM/ISM:\t" $1}' >> sqanti_s
 grep 'novel_in_catalog' *rb.*classification.txt | wc -l | awk '{print "NIC:\t" $1}' >> sqanti_summary.txt # for NIC
 grep 'novel_not_in_catalog' *rb.*classification.txt | wc -l | awk '{print "NNC:\t" $1}' >> sqanti_summary.txt # for NNC
 grep 'antisense' *rb.*classification.txt | wc -l | awk '{print "antisense:\t" $1}'>> sqanti_summary.txt # for antisense
-grep 'genic' *rb.*classification.txt | wc -l | awk '{print "genic:\t" $1}' >> sqanti_summary.txt # for genic
+grep -w 'genic' *rb.*classification.txt | wc -l | awk '{print "genic:\t" $1}' >> sqanti_summary.txt # for genic
 grep 'intergenic' *rb.*classification.txt | wc -l | awk '{print "intergenic:\t" $1}' >> sqanti_summary.txt # for intergenic
 grep 'fusion' *rb.*classification.txt | wc -l | awk '{print "fusion:\t" $1}' >> sqanti_summary.txt # for fusion
 
@@ -133,6 +133,6 @@ cut -f8 | sort | uniq | wc -l | awk '{print "Unique FSM/ISM:\t" $1}' >> sqanti_s
 grep 'novel_in_catalog' *rattle.*classification.txt | wc -l | awk '{print "NIC:\t" $1}' >> sqanti_summary.txt # for NIC
 grep 'novel_not_in_catalog' *rattle.*classification.txt | wc -l | awk '{print "NNC:\t" $1}' >> sqanti_summary.txt # for NNC
 grep 'antisense' *rattle.*classification.txt | wc -l | awk '{print "antisense:\t" $1}'>> sqanti_summary.txt # for antisense
-grep 'genic' *rattle.*classification.txt | wc -l | awk '{print "genic:\t" $1}' >> sqanti_summary.txt # for genic
+grep -w 'genic' *rattle.*classification.txt | wc -l | awk '{print "genic:\t" $1}' >> sqanti_summary.txt # for genic
 grep 'intergenic' *rattle.*classification.txt | wc -l | awk '{print "intergenic:\t" $1}' >> sqanti_summary.txt # for intergenic
 grep 'fusion' *rattle.*classification.txt | wc -l | awk '{print "fusion:\t" $1}' >> sqanti_summary.txt # for fusion
