@@ -2,12 +2,12 @@
 
 for assembler in flair stringtie.free stringtie.guided rb rattle
 do
-    echo analysis for ${assembler}
+    echo analysis for ${assembler} >> sqanti_summary.txt
 
     wc -l *${assembler}.*classification.txt | awk '{print "transcripts assembled: " $1 -1}' >> sqanti_summary.txt # no. of transcripts (-1 for the header line)
     
-    grep -oE 'transcript_id "\S*"' $refAnnotation | cut -f2 -d'"'| sort | uniq | wc -l | \
-    awk '{print "unique associated transcripts: " $1}' >> sqanti_summary.txt #no. of unique associated transcripts
+    cut -f8 *${assembler}.*classification.txt | grep -v novel | sort | uniq | wc -l | \
+    awk '{print "unique associated transcripts: " $1 -1}' >> sqanti_summary.txt #no. of unique associated transcripts
     
     grep 'full-splice_match' *${assembler}.*classification.txt | wc -l | awk '{print "FSM:\t" $1}' >> sqanti_summary.txt #for fsm
     grep 'full-splice_match' *${assembler}.*classification.txt | \
