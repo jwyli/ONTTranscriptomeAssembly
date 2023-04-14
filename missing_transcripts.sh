@@ -2,7 +2,7 @@
 
 refAnnotation=$1
 
-grep -oE 'transcript_id ".*+";' $refAnnotation | cut -f2 -d'"'| sort | uniq >> refGenes.tmp
+grep -oE 'transcript_id "\S*";' $refAnnotation | cut -f2 -d'"'| sort | uniq >> refGenes.tmp
 
 for assembler in flair stringtie.guided stringtie.free rb rattle
 do
