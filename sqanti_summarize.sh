@@ -5,7 +5,10 @@ do
     echo analysis for ${assembler}
 
     wc -l *${assembler}.*classification.txt | awk '{print "transcripts assembled: " $1 -1}' >> sqanti_summary.txt # no. of transcripts (-1 for the header line)
-
+    
+    grep -oE 'transcript_id "\S*"' $refAnnotation | cut -f2 -d'"'| sort | uniq | wc -l | \
+    awk '{print "unique associated transcripts: " $1}' >> sqanti_summary.txt #no. of unique associated transcripts
+    
     grep 'full-splice_match' *${assembler}.*classification.txt | wc -l | awk '{print "FSM:\t" $1}' >> sqanti_summary.txt #for fsm
     grep 'full-splice_match' *${assembler}.*classification.txt | \
     cut -f8 | sort | uniq | wc -l | awk '{print "Unique FSM:\t" $1}' >> sqanti_summary.txt #for unique fsm
