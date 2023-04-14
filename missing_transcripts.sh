@@ -2,7 +2,7 @@
 
 refAnnotation=$1
 
-grep transcript $refAnnotation | cut -f9 | cut -f4 -d'"'| sort | uniq >> refGenes.tmp
+grep -w transcript $refAnnotation | cut -f9 | cut -f4 -d'"'| sort | uniq >> refGenes.tmp
 
 for assembler in flair stringtie.guided stringtie.free rb rattle
 do
