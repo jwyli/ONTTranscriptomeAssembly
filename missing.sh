@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#usage: go to dir with *_classification.txt, run script ${homedir}/missing.sh /path/to/refAnnotation.gtf
+
 refAnnotation=$1
 
 grep -oE 'transcript_id "\S*"' $refAnnotation | cut -f2 -d'"'| sort | uniq > refTranscripts.tmp
