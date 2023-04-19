@@ -85,12 +85,12 @@ The output files are stored in 03.sqanti and 04.gffcompare under dir baseForName
 (sqanti also creates a .renamed.fasta file in 02.assembly for its own use, where the transcript description line is changed)
 + gffcompare only uses available .gtf files for analysis (ie. only stringtie and flair assemblies)
 
-### Summarizing sqanti results
+## 3. Summarizing sqanti results
 run sqanti_summarize.sh after going to the directory with the sqanti output
 ```bash
 ${homedir}/sqanti_summarize.sh
 ```
-Outputs a tsv with number of transcripts in different sqanti categories for each assembly
+Output: tsv with number of transcripts in different sqanti categories for each assembly
 
 run missing.sh after going to directory with the sqanti output 
 ```bash
