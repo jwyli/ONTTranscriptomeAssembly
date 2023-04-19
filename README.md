@@ -86,12 +86,23 @@ The output files are stored in 03.sqanti and 04.gffcompare under dir baseForName
 + gffcompare only uses available .gtf files for analysis (ie. only stringtie and flair assemblies)
 
 ### Summarizing sqanti results
-run sqanti_summarize.sh after going to the directory with the sqanti output (preferably frFa)
+run sqanti_summarize.sh after going to the directory with the sqanti output
 ```bash
 ${homedir}/sqanti_summarize.sh
 ```
-
 Outputs a tsv with number of transcripts in different sqanti categories for each assembly
+
+run missing.sh after going to directory with the sqanti output 
+```bash
+${homedir}/missing.sh /path/to/refAnnotation.gtf
+```
+Output:
++ refGenes.tmp: list of genes in the reference (ground truth) set
++ refTranscripts.tmp: list of transcripts in the reference (ground truth) set
++ $assembler.genes.tmp: list of genes associated with the transcripts assembled
++ $assembler.transcripts.tmp: list of transcripts assembled
++ $assembler.genes.diff: list of missing genes in the assembly (compared with reference set)
++ $assembler.transcripts.diff: list of missing transcripts in the assembly (compared with reference set)
 
 ###### Temp link for results generated 
 + Dataset SRR6058583 Oxford Nanopore direct RNA of SIRV mix E2: https://www.ncbi.nlm.nih.gov/sra/?term=SRR6058583  
