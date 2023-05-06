@@ -13,7 +13,7 @@ do
     grep 'full-splice_match' *${assembler}.*classification.txt | \
     cut -f8 | sort | uniq | wc -l | awk '{print "Unique FSM:\t" $1}' >> sqanti_summary.txt #for unique fsm
 
-    grep 'full-splice_match' *${assembler}.*classification.txt | grep 'reference_match'  \
+    grep 'full-splice_match' *${assembler}.*classification.txt | grep 'reference_match' | \
     wc -l | awk '{print "RM:\t" $1}' >> sqanti_summary.txt #for rm that are multi-exon
     grep 'full-splice_match' *${assembler}.*classification.txt | grep 'reference_match' | \
     cut -f8 | sort | uniq | wc -l | awk '{print "Unique RM:\t" $1}' >> sqanti_summary.txt #for unique rm multi-exon
