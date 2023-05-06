@@ -18,10 +18,10 @@ do
     grep 'full-splice_match' *${assembler}.*classification.txt | grep 'reference_match' | \
     cut -f8 | sort | uniq | wc -l | awk '{print "Unique RM:\t" $1}' >> sqanti_summary.txt #for unique rm multi-exon
     
-    grep 'full-splice_match' *${assembler}.*classification.txt | grep 'mono-exon' | awk '$11 <50' | awk '$12 < 50'| \
+    grep 'full-splice_match' *${assembler}.*classification.txt | grep 'mono-exon' | awk '$11 <51' | awk '$12 < 51'| \
     wc -l | awk '{print "RM_mono:\t" $1}' >> sqanti_summary.txt #for rm that are mono-exon
-    grep 'full-splice_match' *${assembler}.*classification.txt | grep 'mono-exon' | awk '$11 <50' | awk '$12 < 50'| \
-    cut -f8 | sort | uniq | wc -l | awk '{print "Unique RM:\t" $1}' >> sqanti_summary.txt #for unique rm mono-exon
+    grep 'full-splice_match' *${assembler}.*classification.txt | grep 'mono-exon' | awk '$11 <51' | awk '$12 < 51'| \
+    cut -f8 | sort | uniq | wc -l | awk '{print "Unique RM_mono:\t" $1}' >> sqanti_summary.txt #for unique rm mono-exon
 
     grep 'incomplete-splice_match' *${assembler}.*classification.txt | wc -l | awk '{print "ISM:\t" $1}' >> sqanti_summary.txt #for ism
     grep 'incomplete-splice_match' *${assembler}.*classification.txt | \
