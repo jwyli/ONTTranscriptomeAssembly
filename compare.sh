@@ -36,9 +36,6 @@ gffcompare -r "$refAnnotation" -o "${baseForName}.flair.gffcmp" "$flairGtf"
 gffcompare -r "$refAnnotation" -o "${baseForName}.stringtie.free.gffcmp" "$stFreeGtf"
 gffcompare -r "$refAnnotation" -o "${baseForName}.stringtie.guided.gffcmp" "$stGuidedGtf"
 
-#consider -R in some samples, but not sirv
-
-#tidy up
 cd "${homedir}/02.assembly/${baseForName}" 
 mv *gffcmp* "${homedir}/04.gffcompare/${baseForName}" #move the gffcmp files from 02.assembly back to 04. gffcompare
 
